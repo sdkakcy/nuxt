@@ -11,7 +11,8 @@
           <v-card-text>
             <v-form>
               <v-text-field
-                id="username"
+                id="email"
+                v-model="login.email"
                 prepend-icon="mdi-account"
                 name="login"
                 :label="$t('E-posta')"
@@ -20,16 +21,21 @@
               </v-text-field>
               <v-text-field
                 id="password"
+                v-model="login.password"
                 prepend-icon="mdi-lock"
                 name="password"
                 :label="$t('Şifre')"
                 type="password"
               ></v-text-field>
+              <v-checkbox
+                v-model="login.remember"
+                :label="$t('Beni hatırla')"
+              ></v-checkbox>
             </v-form>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary">{{ $t('Giriş') }}</v-btn>
+            <v-btn color="primary" @click="auth()">{{ $t('Giriş') }}</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -44,10 +50,32 @@ export default {
   name: 'LoginPage',
   components: { LangSwitcher },
   layout: 'blank',
+  data() {
+    return {
+      login: {
+        email: '',
+        password: '',
+        remember: false,
+      },
+    }
+  },
   head() {
     return {
       title: this.$t('Giriş Yap'),
     }
+  },
+  mounted() {},
+  methods: {
+    async auth() {
+      try {
+        const response = await this.$auth.loginWith('laravelSanctum', {
+          data: this.login,
+        })
+        console.log(response)
+      } catch (error) {
+        console.error(error)
+      }
+    },
   },
 }
 </script>

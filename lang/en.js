@@ -5,4 +5,5 @@ export default {
   'E-posta': 'Email',
   Şifre: 'Password',
   Giriş: 'Login',
+  'Beni hatırla': 'Remember me',
 }
