@@ -75,6 +75,7 @@ export default {
   name: 'LoginPage',
   components: { LangSwitcher },
   layout: 'blank',
+  auth: 'guest',
   data() {
     return {
       login: {
@@ -93,10 +94,9 @@ export default {
   methods: {
     async auth() {
       try {
-        const response = await this.$auth.loginWith('laravelSanctum', {
+        await this.$auth.loginWith('laravelSanctum', {
           data: this.login,
         })
-        console.log(response)
       } catch (error) {
         if (error.response.status === 422) {
           this.$refs.loginValidation.setErrors(error.response.data.errors)

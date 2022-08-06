@@ -113,5 +113,15 @@ export default {
         url: process.env.BASE_URL,
       },
     },
+    redirect: {
+      login: '/auth/login',
+      logout: '/',
+      callback: '/auth/login',
+      home: '/',
+    },
+  },
+
+  router: {
+    middleware: ['auth'],
   },
 }
