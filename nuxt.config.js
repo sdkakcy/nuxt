@@ -40,6 +40,26 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    [
+      '@nuxtjs/i18n',
+      {
+        locales: [
+          {
+            code: 'tr',
+            file: 'tr.js',
+            name: 'Türkçe',
+          },
+          {
+            code: 'en',
+            file: 'en.js',
+            name: 'English',
+          },
+        ],
+        lazy: true,
+        langDir: 'lang/',
+        defaultLocale: 'tr',
+      },
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -59,7 +79,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
