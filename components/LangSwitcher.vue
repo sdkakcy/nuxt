@@ -1,6 +1,10 @@
 <template>
   <div>
-    <v-menu top :close-on-click="closeOnClick">
+    <v-menu
+      :close-on-click="closeOnClick"
+      transition="slide-y-transition"
+      bottom
+    >
       <template #activator="{ on, attrs }">
         <v-btn dark icon v-bind="attrs" v-on="on"
           ><v-icon>mdi-translate</v-icon></v-btn
@@ -8,11 +12,13 @@
       </template>
 
       <v-list>
-        <v-list-item v-for="locale in availableLocales" :key="locale.code">
-          <v-list-item-title
-            @click.prevent.stop="$i18n.setLocale(locale.code)"
-            >{{ locale.name }}</v-list-item-title
-          >
+        <v-list-item
+          v-for="locale in availableLocales"
+          :key="locale.code"
+          nuxt
+          :to="switchLocalePath(locale.code)"
+        >
+          <v-list-item-title>{{ locale.name }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
