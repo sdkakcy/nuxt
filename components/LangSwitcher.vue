@@ -2,9 +2,9 @@
   <div>
     <v-menu top :close-on-click="closeOnClick">
       <template #activator="{ on, attrs }">
-        <v-btn color="primary" dark v-bind="attrs" v-on="on">{{
-          $t('Dil')
-        }}</v-btn>
+        <v-btn dark icon v-bind="attrs" v-on="on"
+          ><v-icon>mdi-translate</v-icon></v-btn
+        >
       </template>
 
       <v-list>
