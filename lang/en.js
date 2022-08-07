@@ -6,4 +6,6 @@ export default {
   Şifre: 'Password',
   Giriş: 'Login',
   'Beni hatırla': 'Remember me',
+  'Ana Sayfa': 'Homepage',
+  Profil: 'Profile',
 }

@@ -6,7 +6,7 @@
       bottom
     >
       <template #activator="{ on, attrs }">
-        <v-btn dark icon v-bind="attrs" v-on="on"
+        <v-btn icon v-bind="attrs" v-on="on"
           ><v-icon>mdi-translate</v-icon></v-btn
         >
       </template>
@@ -27,6 +27,7 @@
 
 <script>
 export default {
+  name: 'LangSwitcher',
   data: () => ({
     closeOnClick: true,
   }),
