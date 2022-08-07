@@ -12,7 +12,6 @@ export default {
   methods: {
     change() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
-      this.$store.dispatch('setThemeDark', this.$vuetify.theme.dark)
     },
   },
 }
