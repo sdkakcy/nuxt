@@ -9,6 +9,9 @@
 <script>
 export default {
   name: 'BlankLayout',
+  beforeCreate() {
+    this.$vuetify.theme.dark = this.$cookies.get('dark')
+  },
 }
 </script>
 

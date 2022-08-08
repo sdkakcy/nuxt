@@ -41,10 +41,10 @@
     </v-navigation-drawer>
     <v-app-bar fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
+      <v-btn icon @click.stop="changeVariant()">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="appTitle" />
+      <v-toolbar-title class="ml-2" v-text="appTitle" />
       <v-spacer />
       <ThemeColorSwitcher />
       <LangSwitcher />
@@ -68,7 +68,7 @@ export default {
     return {
       drawer: false,
       fixed: false,
-      miniVariant: false,
+      miniVariant: this.$cookies.get('miniVariant'),
     }
   },
   computed: {
@@ -81,6 +81,12 @@ export default {
   },
   beforeCreate() {
     this.$vuetify.theme.dark = this.$cookies.get('dark')
+  },
+  methods: {
+    changeVariant() {
+      this.miniVariant = !this.miniVariant
+      this.$cookies.set('miniVariant', this.miniVariant)
+    },
   },
 }
 </script>
