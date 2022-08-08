@@ -1,6 +1,6 @@
 <template>
   <v-btn icon @click="change()">
-    <v-icon>{{
+    <v-icon class="mdi-rotate-135">{{
       $vuetify.theme.dark ? 'mdi-white-balance-sunny' : 'mdi-brightness-2'
     }}</v-icon>
   </v-btn>
