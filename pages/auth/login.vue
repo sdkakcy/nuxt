@@ -7,9 +7,10 @@
           v-slot="{ invalid, validated }"
         >
           <v-card class="elevation-12">
-            <v-toolbar dark color="primary">
+            <v-toolbar>
               <v-toolbar-title>{{ $t('Giriş Yap') }}</v-toolbar-title>
               <v-spacer></v-spacer>
+              <ThemeColorSwitcher />
               <LangSwitcher />
             </v-toolbar>
             <v-card-text>
@@ -70,10 +71,11 @@
 
 <script>
 import LangSwitcher from '@/components/LangSwitcher.vue'
+import ThemeColorSwitcher from '~/components/ThemeColorSwitcher.vue'
 
 export default {
   name: 'LoginPage',
-  components: { LangSwitcher },
+  components: { LangSwitcher, ThemeColorSwitcher },
   layout: 'blank',
   auth: 'guest',
   data() {

@@ -40,7 +40,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon @click.stop="changeDrawer()" />
       <v-btn icon @click.stop="changeVariant()">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
@@ -48,6 +48,9 @@
       <v-spacer />
       <ThemeColorSwitcher />
       <LangSwitcher />
+      <v-btn icon @click="logout()">
+        <v-icon>mdi-export</v-icon>
+      </v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -66,7 +69,7 @@ export default {
   components: { LangSwitcher, ThemeColorSwitcher },
   data() {
     return {
-      drawer: false,
+      drawer: this.$cookies.get('drawer'),
       fixed: false,
       miniVariant: this.$cookies.get('miniVariant'),
     }
@@ -86,6 +89,14 @@ export default {
     changeVariant() {
       this.miniVariant = !this.miniVariant
       this.$cookies.set('miniVariant', this.miniVariant)
+    },
+    changeDrawer() {
+      this.drawer = !this.drawer
+      this.$cookies.set('drawer', this.drawer)
+    },
+
+    logout() {
+      this.$auth.logout()
     },
   },
 }
