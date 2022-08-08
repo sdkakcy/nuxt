@@ -66,7 +66,7 @@ export default {
   components: { LangSwitcher, ThemeColorSwitcher },
   data() {
     return {
-      drawer: true,
+      drawer: false,
       fixed: false,
       miniVariant: false,
     }
@@ -78,6 +78,9 @@ export default {
     items() {
       return menuItems
     },
+  },
+  beforeCreate() {
+    this.$vuetify.theme.dark = this.$cookies.get('dark')
   },
 }
 </script>

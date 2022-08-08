@@ -62,6 +62,7 @@ export default {
         silentTranslationWarn: process.env.NODE_ENV === 'development',
       },
     ],
+    'cookie-universal-nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

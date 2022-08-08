@@ -12,6 +12,7 @@ export default {
   methods: {
     change() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+      this.$cookies.set('dark', this.$vuetify.theme.dark)
     },
   },
 }
